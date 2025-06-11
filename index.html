@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoPb | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #6c757d;
+            --text-color: #212529;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --footer-bg: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #4e73df;
+            --secondary-color: #adb5bd;
+            --text-color: #f8f9fa;
+            --bg-color: #212529;
+            --card-bg: #2c3034;
+            --nav-bg: rgba(44, 48, 52, 0.9);
+            --footer-bg: #343a40;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            background-color: var(--nav-bg);
+            box-shadow: var(--shadow);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: none;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            margin-bottom: 15px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            transition: width 1s ease-in-out;
+        }
+
+        .hero-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), #4e73df);
+            color: white;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 0;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            padding: 30px 0;
+        }
+
+        .mode-toggle {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #ccc !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">BoPb </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre mim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projetos</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <span class="mode-toggle" id="modeToggle">
+                            <i class="fas fa-moon"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção de destaque -->
+    <section id="home" class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <img src="Cat_November_2010-1a.jpg" alt="Profile" class="rounded-circle mb-4"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                    <h1 class="display-4 fw-bold mb-3">BoPb</h1>
+                    <p class="lead mb-4">Aluno de programação - Galera Tech</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#contact" class="btn btn-light btn-lg px-4">Contato</a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg px-4">Ver Projetos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Sobre mim</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="gato-malhado-marrom-com-um-olhar-atento-no-close-da-sala_199743-13266.avif" alt="About"
+                        class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <h3>Quem eu sou?</h3>
+                    <p>Olá, meu nome é Gean. Sou estudante de programação e participo do projeto social Galera Tech,
+                        onde aprendemos diversas tecnologias como HTML, CSS, JavaScript, Bootstrap, SQL, entre outras,
+                        durante um período de aprendizado intensivo. </p>
+                    <p>Minhas experiências ainda são poucas, mas tenho muita vontade de aprender cada vez mais sobre o
+                        mundo da programação, para poder realizar tudo o que desejo.
+
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Nome:</strong> Gean Carlos Gonçalves Dos Reis</li>
+                                <li class="mb-2"><strong>Email:</strong> ggean683@gmail.com</li>
+                                <li class="mb-2"><strong>Telefone:</strong> +55 (17) 99614 9096</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Experiencia:</strong> 4+ Meses</li>
+                                <li class="mb-2"><strong>Localização:</strong> São José do Rio Preto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Habilidades -->
+    <section id="skills" class="py-5 bg-auto">
+        <div class="container">
+            <h2 class="text-center section-title">Minha Habilidades</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Habilidades</h3>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>SQL & Database Design</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>HTML, CSS & JavaScript</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>PHP</span>
+                            <span>55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+    </section>
+
+    <!-- Projetos -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Meus Projetos</h2>
+            <div class="row">
+                <!-- Projeto 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="gatinho.png" class="card-img-top project-img" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:gray">1º - Portfólio</h5>
+                            <p class="card-text" style="color: gray;">
+                                Este foi o nosso primeiro portfólio, desenvolvido durante nossa participação no programa
+                                Galera Tech.</p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-1">HTML</span>
+                                <span class="badge bg-primary me-1">CSS</span>
+                                <span class="badge bg-primary">JavaScript</span>
+                            </div>
+                            <a href="https://bopba.github.io/AlphaV1/" class="btn btn-outline-primary" target="_blank">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projetos 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="BUSCA POKEMON.png" class="card-img-top project-img" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: gray;">Aula - AJAX</h5>
+                            <p class="card-text" style="color: gray;">Desenvolvemos um site interativo que utiliza AJAX
+                                para acessar e exibir informações de Pokémon em tempo real, consumindo dados diretamente
+                                da PokéAPI </p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-1">HTML</span>
+                                <span class="badge bg-primary me-1">CSS</span>
+                                <span class="badge bg-primary">JavaScript</span>
+                            </div>
+                            <a href="https://bopba.github.io/AlphaV3/" class="btn btn-outline-primary" target="_blank">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projetos 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="lanca_presenca.png" class="card-img-top project-img" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: gray;">Aula - Projeto Final</h5>
+                            <p class="card-text" style="color: gray;">Desenvolvemos um sistema de login responsivo
+                                utilizando Bootstrap e JavaScript, com integração a um banco de dados SQL para
+                                armazenamento e validação de usuários.</p>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-1">SQL Server</span>
+                                <span class="badge bg-primary me-1">Bootstrap</span>
+                                <span class="badge bg-primary">JavaScript</span>
+                            </div>
+                            <a href="index.php" class="btn btn-outline-primary">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatp Seção -->
+    <section id="contact" class="py-5 bg-auto">
+        <div class="container">
+            <h2 class="text-center section-title">Entre em Contato</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Seu Nome" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Seu Email" required>
+                            </div>
+                        </div>
+                        <textarea class="form-control" rows="5" placeholder="Sua Mensagem" required></textarea>
+                </div>
+                <div class="text-center mt-2">
+                    <button type="submit" class="btn btn-primary btn-lg px-4 ">Enviar Mensagem</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="https://www.instagram.com/galera_tech/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/bopba" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://discordapp.com/users/bopb___" class="social-icon" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+            <p class="mb-2">&copy; 2025 BoPb. Desenvolvedor Junior.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark/Light Mode Toggle
+        const modeToggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        // Check for saved user preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+            updateIcon();
+        }
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const theme = body.classList.contains('dark-mode') ? 'dark-mode' : '';
+            localStorage.setItem('theme', theme);
+            updateIcon();
+        });
+
+        function updateIcon() {
+            if (body.classList.contains('dark-mode')) {
+                modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+        // Animate skill bars on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+
+            const animateSkillBars = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            };
+
+            // Intersection Observer for scroll animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
